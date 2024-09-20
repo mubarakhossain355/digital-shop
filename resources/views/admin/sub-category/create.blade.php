@@ -35,19 +35,21 @@
                                 <option value="{{$category->id}}">{{$category->name}}</option>
                                 @endforeach
                                
-                                </select> 
+                                </select>
+                                <span class="text-danger">{{$errors->has('category_id')?$errors->first('category_id'):' '}}</span>
                             </div>
                         </div>
                         <div class="row mb-4">
                             <label for="categoryName" class="col-md-3 form-label">Sub Category Name</label>
                             <div class="col-md-9">
-                                <input class="form-control" id="categoryName" name="name" placeholder="Enter your sub category name" type="text">
+                                <input class="form-control" id="categoryName" value="{{old('name')}}" name="name" placeholder="Enter your sub category name" type="text">
+                                <span class="text-danger">{{$errors->has('name')?$errors->first('name'): ' '}}</span>
                             </div>
                         </div>
                         <div class="row mb-4">
                             <label for="description" class="col-md-3 form-label">Sub Category Description</label>
                             <div class="col-md-9">
-                                <textarea class="form-control" id="description" name="description" placeholder="Enter sub category Description" type="text"></textarea>
+                                <textarea class="form-control" id="description"  name="description" placeholder="Enter sub category Description" type="text"></textarea>
                             </div>
                         </div>
                         <div class="row mb-4">

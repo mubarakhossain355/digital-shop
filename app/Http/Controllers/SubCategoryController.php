@@ -13,7 +13,7 @@ class SubCategoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.sub-category.index',['sub_categories' => SubCategory::all()]);
     }
 
     /**
@@ -29,7 +29,15 @@ class SubCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'category_id' => 'required',
+            'name'        => 'required',
+        ],[
+            'category_id.required' => 'category name field is required',
+            'name.required'        => 'sub category name field is required'
+        ]);
+       SubCategory::newSubCategory($request);
+       return back()->with('message','sub category create successfully...');
     }
 
     /**
@@ -45,7 +53,7 @@ class SubCategoryController extends Controller
      */
     public function edit(SubCategory $subCategory)
     {
-        //
+        return view('admin.sub-category.edit',['categories' => Category::all(),'sub_category' => $subCategory]);
     }
 
     /**
@@ -53,7 +61,9 @@ class SubCategoryController extends Controller
      */
     public function update(Request $request, SubCategory $subCategory)
     {
-        //
+        SubCategory::updateSubCategory($request,$subCategory);
+
+        
     }
 
     /**
