@@ -41,15 +41,19 @@
                                 @foreach ($sub_categories as $sub_category)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$sub_category->category_id}}</td>
+                                    <td>{{$sub_category->category->name}}</td>
                                     <td>{{$sub_category->name}}</td>
                                     <td><img src="{{asset($sub_category->image)}}" alt="" height="40" width="40"></td>
                                     <td>{{$sub_category->status == 1?'Published':'Unpublished'}}</td>
-                                    <td>
+                                    <td class="d-flex">
                                         <a href="{{route('sub-category.edit',$sub_category->id)}}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-                                        <a href="" class="btn btn-danger btn-sm">
+                                        <form action="{{route('sub-category.destroy',$sub_category->id)}}" method="POST">
+                                            @method('DELETE')
+                                            @csrf
+                                        <button type="submit" class="btn btn-danger btn-sm ms-1" onclick="return confirm('Are you sure to delete this')">
                                             <i class="fa fa-trash"></i>
-                                        </a>
+                                        </button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach
