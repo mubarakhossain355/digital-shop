@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,7 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', [DashboardController::class,'dashboard'])->name('dashboard');
-    Route::resource('productCategory',CategoryController::class);
+    Route::resource('category',CategoryController::class);
     Route::resource('sub-category',SubCategoryController::class);
+    Route::resource('brand',BrandController::class);
 });

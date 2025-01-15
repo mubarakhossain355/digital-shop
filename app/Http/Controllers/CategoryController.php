@@ -12,7 +12,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.category.index');
+        return view('admin.category.index',['categories' =>Category::all()]);
     }
 
     /**
@@ -45,7 +45,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.category.edit',['category' => $category]);
     }
 
     /**
@@ -53,7 +53,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        Category::updateCategory($request,$category);
+        return redirect()->route('category.index')->with('message','category update successfully...');
     }
 
     /**
@@ -61,6 +62,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        Category::deleteCategory($category);
+        return back()->with('message','category delete successfully...');
     }
 }

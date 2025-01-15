@@ -62,7 +62,7 @@ class SubCategoryController extends Controller
     public function update(Request $request, SubCategory $subCategory)
     {
         SubCategory::updateSubCategory($request,$subCategory);
-        return redirect()->route('sub-category.index')->with('message','sub category create successfully...');
+        return redirect()->route('sub-category.index')->with('message','sub category update successfully...');
         
     }
 

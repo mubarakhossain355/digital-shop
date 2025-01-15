@@ -31,8 +31,8 @@
                     </a>
                     <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="javascript:void(0)">Category Module</a></li>
-                        <li><a href="{{route('productCategory.create')}}" class="slide-item">Add Category</a></li>
-                        <li><a href="{{route('productCategory.index')}}" class="slide-item">Manage Category</a></li>
+                        <li><a href="{{route('category.create')}}" class="slide-item">Add Category</a></li>
+                        <li><a href="{{route('category.index')}}" class="slide-item">Manage Category</a></li>
 
                     </ul>
                 </li>
@@ -54,8 +54,8 @@
                         <span class="side-menu__label">Brand Module</span><i class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="javascript:void(0)">Brand Module</a></li>
-                        <li><a href="chart-echart.html" class="slide-item"> Add Brand</a></li>
-                        <li><a href="chart-chartjs.html" class="slide-item">Manage Brand</a></li>
+                        <li><a href="{{route('brand.create')}}" class="slide-item"> Add Brand</a></li>
+                        <li><a href="{{route('brand.index')}}" class="slide-item">Manage Brand</a></li>
 
                     </ul>
                 </li>

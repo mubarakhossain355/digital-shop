@@ -1,16 +1,16 @@
 @extends('admin.master')
-@section('title','manage-category')
+@section('title','manage-brand')
 
 @section('content')
     <!-- PAGE-HEADER -->
     <div class="page-header">
         <div>
-            <h1 class="page-title">Category Module</h1>
+            <h1 class="page-title">Brand Module</h1>
         </div>
         <div class="ms-auto pageheader-btn">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0);">Category</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Manage Category</li>
+                <li class="breadcrumb-item"><a href="javascript:void(0);">Brand</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Manage Brand</li>
             </ol>
         </div>
     </div>
@@ -20,7 +20,7 @@
         <div class="col-lg-12 col-md-12">
             <div class="card">
                 <div class="card-header border-bottom">
-                    <h3 class="card-title">Manage Category</h3>
+                    <h3 class="card-title">Manage Brand</h3>
                 </div>
                 <div class="card-body">
                     <p class="text-muted">{{session('message')}}</p>
@@ -30,22 +30,22 @@
                             <thead>
                                 <tr>
                                     <th class="border-bottom-0">Sl No.</th>
-                                    <th class="border-bottom-0">Category Name</th>
+                                    <th class="border-bottom-0">Brand Name</th>
                                     <th class="border-bottom-0">Image</th>
                                     <th class="border-bottom-0">Status</th>
                                     <th class="border-bottom-0">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($categories as $category)
+                                @foreach ($brands as $brand)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{$category->name}}</td>
-                                    <td><img src="{{asset($category->image)}}" alt="" height="40" width="40"></td>
-                                    <td>{{$category->status == 1?'Published':'Unpublished'}}</td>
+                                    <td>{{$brand->name}}</td>
+                                    <td><img src="{{asset($brand->image)}}" alt="" height="40" width="40"></td>
+                                    <td>{{$brand->status == 1?'Published':'Unpublished'}}</td>
                                     <td class="d-flex">
-                                        <a href="{{route('category.edit',$category->id)}}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-                                        <form action="{{route('category.destroy',$category->id)}}" method="POST">
+                                        <a href="{{route('brand.edit',$brand->id)}}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                                        <form action="{{route('brand.destroy',$brand->id)}}" method="POST">
                                             @method('DELETE')
                                             @csrf
                                         <button type="submit" class="btn btn-danger btn-sm ms-1" onclick="return confirm('Are you sure to delete this')">
