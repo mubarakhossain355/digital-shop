@@ -13,7 +13,7 @@ class UnitController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.unit.index',['units' =>Unit::all()]);
     }
 
     /**
@@ -21,7 +21,7 @@ class UnitController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.unit.create');
     }
 
     /**
@@ -29,7 +29,8 @@ class UnitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Unit::newUnit($request);
+        return back()->with('message','Unit Added Successfully');
     }
 
     /**
@@ -45,7 +46,7 @@ class UnitController extends Controller
      */
     public function edit(Unit $unit)
     {
-        //
+        return view('admin.unit.edit',['unit' => $unit]);
     }
 
     /**
@@ -53,7 +54,8 @@ class UnitController extends Controller
      */
     public function update(Request $request, Unit $unit)
     {
-        //
+        Unit::updateUnit($request,$unit);
+        return redirect()->route('unit.index')->with('message','unit updated successfully');
     }
 
     /**
@@ -61,6 +63,7 @@ class UnitController extends Controller
      */
     public function destroy(Unit $unit)
     {
-        //
+        Unit::deleteUnit($unit);
+        return back()->with('message',' unit delete successfully');
     }
 }

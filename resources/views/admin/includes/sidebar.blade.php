@@ -65,8 +65,8 @@
                         <span class="side-menu__label">Unit Module</span><i class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="javascript:void(0)">Unit Module</a></li>
-                        <li><a href="icons.html" class="slide-item">Add Unit</a></li>
-                        <li><a href="icons2.html" class="slide-item"> Manage Unit</a></li>
+                        <li><a href="{{route('unit.create')}}" class="slide-item">Add Unit</a></li>
+                        <li><a href="{{route('unit.index')}}" class="slide-item"> Manage Unit</a></li>
 
                     </ul>
                 </li>
