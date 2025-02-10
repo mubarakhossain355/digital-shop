@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ColorController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DigitalShopController;
@@ -25,4 +26,5 @@ Route::middleware([
     Route::resource('sub-category',SubCategoryController::class);
     Route::resource('brand',BrandController::class);
     Route::resource('unit',UnitController::class);
+    Route::resource('color',ColorController::class);
 });

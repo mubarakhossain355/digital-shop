@@ -76,8 +76,8 @@
                         <span class="side-menu__label">Color Module</span><i class="angle fa fa-angle-right"></i></a>
                     <ul class="slide-menu">
                         <li class="side-menu-label1"><a href="javascript:void(0)">Color Module</a></li>
-                        <li><a href="maps1.html" class="slide-item">Add Color</a></li>
-                        <li><a href="maps2.html" class="slide-item">Manage Color</a></li>
+                        <li><a href="{{route('color.create')}}" class="slide-item">Add Color</a></li>
+                        <li><a href="{{route('color.index')}}" class="slide-item">Manage Color</a></li>
 
                     </ul>
                 </li>
