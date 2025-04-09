@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Color;
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
 use Illuminate\Http\Request;
 
 class ColorController extends Controller
@@ -13,7 +14,7 @@ class ColorController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.color.index',['colors' => Color::all()]);
     }
 
     /**
@@ -46,7 +47,7 @@ class ColorController extends Controller
      */
     public function edit(Color $color)
     {
-        //
+        return view('admin.color.edit',['color' => $color]);
     }
 
     /**
@@ -54,7 +55,8 @@ class ColorController extends Controller
      */
     public function update(Request $request, Color $color)
     {
-        //
+        Color::updateColor($request,$color);
+        return redirect()->route('color.index')->with('message','color updated successsfully');
     }
 
     /**
@@ -62,6 +64,7 @@ class ColorController extends Controller
      */
     public function destroy(Color $color)
     {
-        //
+        Color::deleteColor($color);
+        return back()->with('message',' color delete successfully');
     }
 }

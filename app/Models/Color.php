@@ -28,22 +28,22 @@ class Color extends Model
    
    
     
-    public static function updateUnit($request,$unit)
+    public static function updateColor($request,$color)
     {
         if($request->file('image'))
         {
-            if(file_exists($unit->image))
+            if(file_exists($color->image))
             {
-                unlink($unit->image);
+                unlink($color->image);
             }
             self::$imageUrl = self::getImageUrl($request);
         }
         else
         {
-            self::$imageUrl = $unit->image;
+            self::$imageUrl = $color->image;
         }
 
-        self::saveBasicInfo($unit,$request,self::$imageUrl);
+        self::saveBasicInfo($color,$request,self::$imageUrl);
     }
 
 
@@ -58,13 +58,13 @@ class Color extends Model
 
   
 
-    public static function deleteUnit($unit)
+    public static function deleteColor($color)
     {
-        if(file_exists($unit->image))
+        if(file_exists($color->image))
         {
-            unlink($unit->image);
+            unlink($color->image);
         }
-        $unit->delete();
+        $color->delete();
         
     }
 }
